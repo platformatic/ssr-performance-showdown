@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spiral Pattern</title>
+    <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+      margin: 0;
+    }
+    #wrapper {
+      width: 960px;
+      height: 720px;
+      position: relative;
+      background-color: white;
+    }
+    .tile {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: #333;
+    }
+    </style>
+  </head>
+  <body>
+    <div id="wrapper"></div>
+    <script>
+    const wrapper = document.getElementById('wrapper');
+    const width = 960;
+    const height = 720;
+    const cellSize = 5;
+    
+    function drawSpiral() {
+      let centerX = width / 2;
+      let centerY = height / 2;
+      let angle = 0;
+      let radius = 0;
+      const step = cellSize;
+    
+      while (radius < Math.min(width, height) / 2) {
+        let x = centerX + Math.cos(angle) * radius;
+        let y = centerY + Math.sin(angle) * radius;
+      
+        if (x >= 0 && x <= width - cellSize && y >= 0 && y <= height - cellSize) {
+          const tile = document.createElement('div');
+          tile.className = 'tile';
+          tile.style.left = `${x}px`;
+          tile.style.top = `${y}px`;
+          wrapper.appendChild(tile);
+        }
+  
+        angle += 0.2;
+        radius += step * 0.015; // Gradually increase the radius
+      }
+    }
+    drawSpiral();
+    </script>
+  </body>
+</html>
