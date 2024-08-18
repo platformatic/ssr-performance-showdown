@@ -30,35 +30,35 @@
   <body>
     <div id="wrapper"></div>
     <script>
-    const wrapper = document.getElementById('wrapper');
-    const width = 960;
-    const height = 720;
-    const cellSize = 5;
+    const wrapper = document.getElementById('wrapper')
+    const width = 960
+    const height = 720
+    const cellSize = 5
     
     function drawSpiral() {
-      let centerX = width / 2;
-      let centerY = height / 2;
-      let angle = 0;
-      let radius = 0;
-      const step = cellSize;
+      let centerX = width / 2
+      let centerY = height / 2
+      let angle = 0
+      let radius = 0
+      const step = cellSize
     
       while (radius < Math.min(width, height) / 2) {
-        let x = centerX + Math.cos(angle) * radius;
-        let y = centerY + Math.sin(angle) * radius;
+        let x = centerX + Math.cos(angle) * radius
+        let y = centerY + Math.sin(angle) * radius
       
         if (x >= 0 && x <= width - cellSize && y >= 0 && y <= height - cellSize) {
-          const tile = document.createElement('div');
-          tile.className = 'tile';
-          tile.style.left = `${x}px`;
-          tile.style.top = `${y}px`;
-          wrapper.appendChild(tile);
+          const tile = document.createElement('div')
+          tile.className = 'tile'
+          tile.style.left = `${x}px`
+          tile.style.top = `${y}px`
+          wrapper.appendChild(tile)
         }
   
-        angle += 0.2;
-        radius += step * 0.015; // Gradually increase the radius
+        angle += 0.2
+        radius += step * 0.015
       }
     }
-    drawSpiral();
+    drawSpiral()
     </script>
   </body>
 </html>

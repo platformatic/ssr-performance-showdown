@@ -1,5 +1,5 @@
 export function createHtmlFunction (app) {
-  return (inner, reply) => {
+  return (inner) => {
     return app.html`
       <!DOCTYPE html>
       <html lang="en">
