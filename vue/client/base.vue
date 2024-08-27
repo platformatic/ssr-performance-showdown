@@ -10,7 +10,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { shallowRef } from 'vue'
 
 const wrapperWidth = 960
 const wrapperHeight = 720
@@ -18,7 +18,7 @@ const cellSize = 10
 const centerX = wrapperWidth / 2
 const centerY = wrapperHeight / 2
 
-const tiles = ref([])
+const tiles = shallowRef([])
 
 let idCounter = 0
 let angle = 0
