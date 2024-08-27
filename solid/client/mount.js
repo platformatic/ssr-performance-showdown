@@ -2,6 +2,6 @@ import { hydrate } from 'solid-js/web'
 import { createApp } from './base.jsx'
 
 hydrate(
-  createApp(),
+  createApp,
   document.getElementById('root')
 )

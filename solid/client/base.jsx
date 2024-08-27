@@ -1,15 +1,10 @@
-export function createApp () {
-  return App
-}
-
-function App () {
+export function createApp() {
   const wrapperWidth = 960
   const wrapperHeight = 720
   const cellSize = 10
   const centerX = wrapperWidth / 2
   const centerY = wrapperHeight / 2
 
-  let idCounter = 0
   let angle = 0
   let radius = 0
   const tiles = []
@@ -22,7 +17,7 @@ function App () {
     y = centerY + Math.sin(angle) * radius
 
     if (x >= 0 && x <= wrapperWidth - cellSize && y >= 0 && y <= wrapperHeight - cellSize) {
-      tiles.push({ x, y, id: idCounter++ })
+      tiles.push({ x, y })
     }
 
     angle += 0.2
@@ -30,28 +25,18 @@ function App () {
   }
 
   return (
-    <div
-      id="wrapper"
-      style={{
-        width: `${wrapperWidth}px`,
-        height: `${wrapperHeight}px`,
-        position: "relative",
-        backgroundColor: "white",
-      }}
-    >
-      {tiles.map((tile) => (
-        <div
-          key={tile.id}
-          className="tile"
-          style={{
-            position: "absolute",
-            width: `${cellSize}px`,
-            height: `${cellSize}px`,
-            'background-color': "#333",
-            left: `${tile.x}px`,
-            top: `${tile.y}px`,
-          }} />
-      ))}
+    <div id="wrapper">
+      <For each={tiles}>
+        {({ x, y }) => (
+          <div
+            class="tile"
+            style={{
+              left: `${x}px`,
+              top: `${y}px`,
+            }}
+          />
+        )}
+      </For>
     </div>
-  )
+  );
 }
