@@ -42,18 +42,3 @@ while (radius < Math.min(wrapperWidth, wrapperHeight) / 2) {
 
 tiles.value = newTiles
 </script>
-
-<style scoped>
-#wrapper {
-  width: 960px;
-  height: 720px;
-  position: relative;
-  background-color: white;
-}
-.tile {
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  background-color: #333;
-}
-</style>
