@@ -26,9 +26,9 @@
 
 <div id="wrapper">
   {#each tiles as { x, y }}
-    <div
+    <div 
       class="tile"
-      style="left: {x.toFixed(2)}px; top: {y.toFixed(2)}px;"
-    ></div>
+      style="left: {x.toFixed(2)}px; top: {y.toFixed(2)}px;">
+    </div>
   {/each}
 </div>

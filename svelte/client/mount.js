@@ -1,6 +1,6 @@
+import { hydrate } from 'svelte'
 import Page from './page.svelte'
 
-new Page({
+hydrate(Page, {
   target: document.getElementById('root'),
-  hydrate: true
 })

@@ -30,7 +30,10 @@ export function createApp () {
       {tiles.map(({ x, y }) => (
         <div
           className="tile"
-          style={`left: ${x.toFixed(2)}px; top: ${y.toFixed(2)}px`} />
+          style={{
+            left: `${x.toFixed(2)}px`,
+            top: `${y.toFixed(2)}px`
+          }} />
       ))}
     </div>
   );
