@@ -2,6 +2,7 @@
 import { fileURLToPath } from 'node:url'
 import Fastify from 'fastify'
 import FastifyVite from '@fastify/vite'
+import { render } from 'svelte/server'
 
 export async function main (dev) {
   const server = Fastify()
@@ -12,7 +13,7 @@ export async function main (dev) {
     root,
     createRenderFunction ({ Page }) {
       return () => {
-        const { html: element } = Page.render()
+        const { body: element } = render(Page)
         return { element }
       }
     }
