@@ -17,7 +17,7 @@
     let y = centerY + Math.sin(angle) * radius
 
     if (x >= 0 && x <= wrapperWidth - cellSize && y >= 0 && y <= wrapperHeight - cellSize) {
-      tiles = [...tiles, { x, y, id: idCounter++ }]
+      tiles.push({ x, y, id: idCounter++ })
     }
 
     angle += 0.2
