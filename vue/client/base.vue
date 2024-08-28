@@ -10,7 +10,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { shallowRef } from 'vue'
 
 const wrapperWidth = 960
 const wrapperHeight = 720
@@ -18,7 +18,7 @@ const cellSize = 10
 const centerX = wrapperWidth / 2
 const centerY = wrapperHeight / 2
 
-const tiles = ref([])
+const tiles = shallowRef([])
 
 let idCounter = 0
 let angle = 0
@@ -42,18 +42,3 @@ while (radius < Math.min(wrapperWidth, wrapperHeight) / 2) {
 
 tiles.value = newTiles
 </script>
-
-<style scoped>
-#wrapper {
-  width: 960px;
-  height: 720px;
-  position: relative;
-  background-color: white;
-}
-.tile {
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  background-color: #333;
-}
-</style>

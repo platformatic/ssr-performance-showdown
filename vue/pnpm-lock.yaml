@@ -15,7 +15,7 @@ importers:
         specifier: ^4.24.3
         version: 4.28.1
       vue:
-        specifier: ^3.3.8
+        specifier: ^3.4.38
         version: 3.4.38
     devDependencies:
       '@babel/core':
@@ -319,6 +319,7 @@ packages:
 
   '@fastify/vite@6.0.7':
     resolution: {integrity: sha512-+dRo9KUkvmbqdmBskG02SwigWl06Mwkw8SBDK1zTNH6vd4DyXbRvI7RmJEmBkLouSU81KTzy1+OzwHSffqSD6w==}
+    bundledDependencies: []
 
   '@humanwhocodes/config-array@0.11.14':
     resolution: {integrity: sha512-3T8LkOmg45BV5FICb15QQMsyUSWrQ8AygVfC7ZG32zOalnqrilm018ZVCw0eapXux8FtA33q8PSRSstjee3jSg==}
