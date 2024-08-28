@@ -38,10 +38,10 @@ export async function main () {
     }
 
     return reply.html`<div id="wrapper">
-      !${tiles.map((tile) => (
+      !${tiles.map(({ x, y }) => (
         server.html`<div
           class="tile"
-          style="left: ${tile.x}px; top: ${tile.y}px"></div>`
+          style="left: ${x.toFixed(2)}px; top: ${y.toFixed(2)}px"></div>`
       ))}
     </div>`
   })

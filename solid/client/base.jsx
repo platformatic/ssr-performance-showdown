@@ -30,11 +30,7 @@ export function createApp() {
         {({ x, y }) => (
           <div
             class="tile"
-            style={{
-              left: `${x}px`,
-              top: `${y}px`,
-            }}
-          />
+            style={`left: ${x.toFixed(2)}px; top: ${y.toFixed(2)}px`} />
         )}
       </For>
     </div>

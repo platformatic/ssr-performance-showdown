@@ -1,9 +1,9 @@
 <template>
   <div id="wrapper">
     <div
-      v-for="(tile, index) in tiles"
+      v-for="({ x, y }, index) in tiles"
       class="tile"
-      :style="`left: ${tile.x.toFixed(2)}px; top: ${tile.y.toFixed(2)}px`"
+      :style="`left: ${x.toFixed(2)}px; top: ${y.toFixed(2)}px`"
     ></div>
   </div>
 </template>
