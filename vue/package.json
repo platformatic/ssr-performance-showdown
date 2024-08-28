@@ -12,7 +12,7 @@
   "dependencies": {
     "@fastify/vite": "^",
     "fastify": "^4.24.3",
-    "vue": "^3.3.8"
+    "vue": "^3.4.38"
   },
   "devDependencies": {
     "@babel/core": "^7.23.3",
