@@ -2,18 +2,18 @@
 import { fileURLToPath } from 'node:url'
 import Fastify from 'fastify'
 import FastifyVite from '@fastify/vite'
-import { renderToString, generateHydrationScript } from 'solid-js/web'
+import { renderToString } from 'preact-render-to-string'
 
 export async function main (dev) {
   const server = Fastify()
 
   await server.register(FastifyVite, {
     root: import.meta.url,
+    dev: dev || process.argv.includes('--dev'),
     createRenderFunction ({ createApp }) {
       return () => {
         return {
-          hydration: generateHydrationScript(),
-          element: renderToString(createApp)
+          element: renderToString(createApp())
         }
       }
     }
