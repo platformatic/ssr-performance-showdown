@@ -2,7 +2,7 @@
 import { fileURLToPath } from 'node:url'
 import Fastify from 'fastify'
 import FastifyVite from '@fastify/vite'
-import { renderToStringAsync, generateHydrationScript } from 'solid-js/web'
+import { renderToString, generateHydrationScript } from 'solid-js/web'
 
 export async function main (dev) {
   const server = Fastify()
@@ -10,10 +10,10 @@ export async function main (dev) {
   await server.register(FastifyVite, {
     root: import.meta.url,
     createRenderFunction ({ createApp }) {
-      return async () => {
+      return () => {
         return {
           hydration: generateHydrationScript(),
-          element: await renderToStringAsync(createApp())
+          element: renderToString(createApp)
         }
       }
     }
