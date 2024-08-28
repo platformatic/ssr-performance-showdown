@@ -10,21 +10,18 @@
 </template>
 
 <script setup>
-import { shallowRef } from 'vue'
-
 const wrapperWidth = 960
 const wrapperHeight = 720
 const cellSize = 10
 const centerX = wrapperWidth / 2
 const centerY = wrapperHeight / 2
 
-const tiles = shallowRef([])
-
 let idCounter = 0
 let angle = 0
 let radius = 0
-const step = cellSize;
-const newTiles = [];
+
+const tiles = []
+const step = cellSize
 
 let x
 let y
@@ -33,12 +30,10 @@ while (radius < Math.min(wrapperWidth, wrapperHeight) / 2) {
   y = centerY + Math.sin(angle) * radius
 
   if (x >= 0 && x <= wrapperWidth - cellSize && y >= 0 && y <= wrapperHeight - cellSize) {
-    newTiles.push({ x, y, id: idCounter++ })
+    tiles.push({ x, y, id: idCounter++ })
   }
 
   angle += 0.2
   radius += step * 0.015
 }
-
-tiles.value = newTiles
 </script>
