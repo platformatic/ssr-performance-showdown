@@ -24,21 +24,6 @@
   }
 </script>
 
-<style>
-  #wrapper {
-    width: 960px;
-    height: 720px;
-    position: relative;
-    background-color: white;
-  }
-  .tile {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    background-color: #333;
-  }
-</style>
-
 <div id="wrapper">
   {#each tiles as { x, y }}
     <div
