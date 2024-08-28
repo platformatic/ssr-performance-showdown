@@ -11,9 +11,11 @@ export async function main (dev) {
     root: import.meta.url,
     dev: dev || process.argv.includes('--dev'),
     createRenderFunction ({ createApp }) {
+      const html = renderToString(createApp())
+
       return () => {
         return {
-          element: renderToString(createApp())
+          element: html
         }
       }
     }
