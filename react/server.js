@@ -2,7 +2,8 @@
 import { fileURLToPath } from 'node:url'
 import Fastify from 'fastify'
 import FastifyVite from '@fastify/vite'
-import { renderToString } from 'react-dom/server'
+// eslint-disable-next-line camelcase
+import { experimental_renderToHTML } from 'react-markup'
 
 export async function main (dev) {
   const server = Fastify()
@@ -13,7 +14,7 @@ export async function main (dev) {
     createRenderFunction ({ createApp }) {
       return () => {
         return {
-          element: renderToString(createApp())
+          element: experimental_renderToHTML(createApp())
         }
       }
     }
