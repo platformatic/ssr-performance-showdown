@@ -41,7 +41,7 @@ fn App() -> Element {
                     y,
                     id: id_counter,
                 });
-                id_counther += 1;
+                id_counter += 1;
             }
             angle += 0.2;
             radius += step * 0.015;
