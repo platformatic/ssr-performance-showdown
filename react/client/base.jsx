@@ -1,5 +1,3 @@
-import React from 'react'
-
 export function createApp () {
   const wrapperWidth = 960
   const wrapperHeight = 720
