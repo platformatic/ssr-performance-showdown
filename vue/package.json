@@ -10,7 +10,7 @@
     "test": "node --test"
   },
   "dependencies": {
-    "@fastify/vite": "^",
+    "@fastify/vite": "^6.0.7",
     "fastify": "^4.24.3",
     "vue": "^3.4.38"
   },

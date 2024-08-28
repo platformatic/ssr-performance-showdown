@@ -42,7 +42,6 @@ export async function main () {
       !${tiles.map((tile) => (
         server.html`<div
           class="tile"
-          data-key="${tile.id}"
           style="left: ${tile.x}px; top: ${tile.y}px"></div>`
       ))}
     </div>`

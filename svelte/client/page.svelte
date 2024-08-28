@@ -5,6 +5,7 @@
   const centerX = wrapperWidth / 2
   const centerY = wrapperHeight / 2
 
+  let idCounter = 0
   let angle = 0
   let radius = 0
 
@@ -16,7 +17,7 @@
     let y = centerY + Math.sin(angle) * radius
 
     if (x >= 0 && x <= wrapperWidth - cellSize && y >= 0 && y <= wrapperHeight - cellSize) {
-      tiles.push({ x, y })
+      tiles.push({ x, y, id: idCounter++ })
     }
 
     angle += 0.2
@@ -25,10 +26,10 @@
 </script>
 
 <div id="wrapper">
-  {#each tiles as { x, y }}
+  {#each tiles as tile (tile.id)}
     <div
       class="tile"
-      style="left: {x}px; top: {y}px;"
+      style="left: {tile.x}px; top: {tile.y}px;"
     ></div>
   {/each}
 </div>

@@ -32,7 +32,6 @@ export default function () {
     <div id="wrapper">
       {tiles.map((tile) => (
         <div
-          key={tile.id}
           class="tile"
           style={{
             left: `${tile.x}px`,
