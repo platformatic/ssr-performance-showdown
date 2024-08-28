@@ -16,6 +16,8 @@ const cellSize = 10
 const centerX = wrapperWidth / 2
 const centerY = wrapperHeight / 2
 
+const tiles = []
+
 let idCounter = 0
 let angle = 0
 let radius = 0

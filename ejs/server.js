@@ -1,14 +1,17 @@
 #!/usr/bin/env node
 import { fileURLToPath } from 'node:url'
+import { join } from 'node:path'
 import Fastify from 'fastify'
-import fastifyHtml from 'fastify-html'
-import { createHtmlFunction } from './client/index.js'
+import fastifyView from '@fastify/view'
+import ejs from 'ejs'
 
 export async function main () {
   const server = Fastify()
-  await server.register(fastifyHtml)
-
-  server.addLayout(createHtmlFunction(server))
+  await server.register(fastifyView, {
+    engine: { ejs },
+    root: 'client',
+    layout: 'index.ejs',
+  })
 
   server.get('/', (req, reply) => {
     const wrapperWidth = 960
@@ -17,6 +20,7 @@ export async function main () {
     const centerX = wrapperWidth / 2
     const centerY = wrapperHeight / 2
 
+    let idCounter = 0
     let angle = 0
     let radius = 0
 
@@ -30,20 +34,14 @@ export async function main () {
       y = centerY + Math.sin(angle) * radius
 
       if (x >= 0 && x <= wrapperWidth - cellSize && y >= 0 && y <= wrapperHeight - cellSize) {
-        tiles.push({ x, y })
+        tiles.push({ x, y, id: idCounter++ })
       }
 
       angle += 0.2
       radius += step * 0.015
     }
 
-    return reply.html`<div id="wrapper">
-      !${tiles.map((tile) => (
-        server.html`<div
-          class="tile"
-          style="left: ${tile.x}px; top: ${tile.y}px"></div>`
-      ))}
-    </div>`
+    return reply.view('spiral.ejs', { tiles })
   })
 
   return server
