@@ -15,11 +15,11 @@ importers:
         specifier: ^4.28.1
         version: 4.28.1
       react:
-        specifier: ^18.3.1
-        version: 18.3.1
+        specifier: 19.0.0-rc-f90a6bcc-20240827
+        version: 19.0.0-rc-f90a6bcc-20240827
       react-dom:
-        specifier: ^18.3.1
-        version: 18.3.1(react@18.3.1)
+        specifier: 19.0.0-rc-f90a6bcc-20240827
+        version: 19.0.0-rc-f90a6bcc-20240827(react@19.0.0-rc-f90a6bcc-20240827)
       ws:
         specifier: ^8.18.0
         version: 8.18.0
@@ -384,6 +384,7 @@ packages:
 
   '@fastify/vite@6.0.7':
     resolution: {integrity: sha512-+dRo9KUkvmbqdmBskG02SwigWl06Mwkw8SBDK1zTNH6vd4DyXbRvI7RmJEmBkLouSU81KTzy1+OzwHSffqSD6w==}
+    bundledDependencies: []
 
   '@humanwhocodes/config-array@0.11.14':
     resolution: {integrity: sha512-3T8LkOmg45BV5FICb15QQMsyUSWrQ8AygVfC7ZG32zOalnqrilm018ZVCw0eapXux8FtA33q8PSRSstjee3jSg==}
@@ -1488,10 +1489,10 @@ packages:
   quick-format-unescaped@4.0.4:
     resolution: {integrity: sha512-tYC1Q1hgyRuHgloV/YXs2w15unPVh8qfu/qCTfhTYamaw7fyhumKa2yGpdSo87vY32rIclj+4fWYQXUMs9EHvg==}
 
-  react-dom@18.3.1:
-    resolution: {integrity: sha512-5m4nQKp+rZRb09LNH59GM4BxTh9251/ylbKIbpe7TpGxfJ+9kv6BLkLBXIjjspbgbnIBNqlI23tRnTWT0snUIw==}
+  react-dom@19.0.0-rc-f90a6bcc-20240827:
+    resolution: {integrity: sha512-oUa/reDvGtjRcxi8u+GYHaDHanudaO28+G+Wvxm50CItW1xwIFN2Nn7foJxxDS9lFLGdRWZvjxldZEPAUSuXbg==}
     peerDependencies:
-      react: ^18.3.1
+      react: 19.0.0-rc-f90a6bcc-20240827
 
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
@@ -1500,8 +1501,8 @@ packages:
     resolution: {integrity: sha512-jCvmsr+1IUSMUyzOkRcvnVbX3ZYC6g9TDrDbFuFmRDq7PD4yaGbLKNQL6k2jnArV8hjYxh7hVhAZB6s9HDGpZA==}
     engines: {node: '>=0.10.0'}
 
-  react@18.3.1:
-    resolution: {integrity: sha512-wS+hAgJShR0KhEvPJArfuPVN1+Hz1t0Y6n5jLrGQbkb4urgPE/0Rve+1kMB1v/oWgHgm4WIcV+i7F2pTVj+2iQ==}
+  react@19.0.0-rc-f90a6bcc-20240827:
+    resolution: {integrity: sha512-XMSTS5fg3jy87V+NgK1aYIca4eXil7xD8cOiEDnm2FoBvLBN2/hW5sxpEHTllengKxq9APDz+uft+LZRPwScUA==}
     engines: {node: '>=0.10.0'}
 
   readable-stream@4.5.2:
@@ -1582,8 +1583,8 @@ packages:
     resolution: {integrity: sha512-e2bDA2WJT0wxseVd4lsDP4+3ONX6HpMXQa1ZhFQ7SU+GjvORCmShbCMltrtIDfkYhVHrOcPtj+KhmDBdPdZD1g==}
     engines: {node: '>=10'}
 
-  scheduler@0.23.2:
-    resolution: {integrity: sha512-UOShsPwz7NrMUqhR6t0hWjFduvOzbtv7toDH1/hIrfRNIDBnnBWd0CwJTGvTpngVlmwGCdP9/Zl/tVrDqcuYzQ==}
+  scheduler@0.25.0-rc-f90a6bcc-20240827:
+    resolution: {integrity: sha512-1qRPgemZ2O2dsOW9yoSArOProZemRmFDJ8cWZ1OolxMEihMdsx45Gwbv8PLkd47Oej43VhXl3N+31N6dRRi2FQ==}
 
   secure-json-parse@2.7.0:
     resolution: {integrity: sha512-6aU+Rwsezw7VR8/nyvKTx8QpWH9FrcYiXXlqC4z5d5XQBDRqtbfsRjnwGyqbi3gddNtWHuEk9OANUotL26qKUw==}
@@ -3402,19 +3403,16 @@ snapshots:
 
   quick-format-unescaped@4.0.4: {}
 
-  react-dom@18.3.1(react@18.3.1):
+  react-dom@19.0.0-rc-f90a6bcc-20240827(react@19.0.0-rc-f90a6bcc-20240827):
     dependencies:
-      loose-envify: 1.4.0
-      react: 18.3.1
-      scheduler: 0.23.2
+      react: 19.0.0-rc-f90a6bcc-20240827
+      scheduler: 0.25.0-rc-f90a6bcc-20240827
 
   react-is@16.13.1: {}
 
   react-refresh@0.14.2: {}
 
-  react@18.3.1:
-    dependencies:
-      loose-envify: 1.4.0
+  react@19.0.0-rc-f90a6bcc-20240827: {}
 
   readable-stream@4.5.2:
     dependencies:
@@ -3518,9 +3516,7 @@ snapshots:
 
   safe-stable-stringify@2.4.3: {}
 
-  scheduler@0.23.2:
-    dependencies:
-      loose-envify: 1.4.0
+  scheduler@0.25.0-rc-f90a6bcc-20240827: {}
 
   secure-json-parse@2.7.0: {}
 
