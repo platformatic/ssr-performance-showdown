@@ -32,6 +32,7 @@ export function app(): FastifyInstance {
         url: baseUrl + url,
         publicPath: browserDistFolder,
         providers: [{ provide: APP_BASE_HREF, useValue: baseUrl }],
+        inlineCriticalCss: false,
       })
       .then((html) => {
         res.type('text/html');
