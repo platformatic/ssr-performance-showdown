@@ -3,7 +3,6 @@ import { Component } from '@angular/core';
 type Shape = {
   x: number;
   y: number;
-  id: number;
 };
 
 @Component({
@@ -11,10 +10,10 @@ type Shape = {
   standalone: true,
   template: `
     <div id="wrapper">
-      @for (tile of this.tiles; track tile.id) {
+      @for (tile of this.tiles; track $index) {
         <div
           class="tile"
-          [style]="{ left: tile.x + 'px', top: tile.y + 'px' }"
+          [style]="{ left: tile.x.toFixed(2) + 'px', top: tile.y.toFixed(2) + 'px' }"
         ></div>
       }
     </div>
@@ -30,7 +29,6 @@ export class AppComponent {
     const centerX = wrapperWidth / 2;
     const centerY = wrapperHeight / 2;
 
-    let idCounter = 0;
     let angle = 0;
     let radius = 0;
 
@@ -44,7 +42,7 @@ export class AppComponent {
       y = centerY + Math.sin(angle) * radius;
 
       if (x >= 0 && x <= wrapperWidth - cellSize && y >= 0 && y <= wrapperHeight - cellSize) {
-        this.tiles.push({ x, y, id: idCounter++ });
+        this.tiles.push({ x, y });
       }
 
       angle += 0.2;
