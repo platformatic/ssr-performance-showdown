@@ -1,0 +1,13 @@
+{
+  "type": "module",
+  "scripts": {
+    "dev": "npm run start",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@fastify/view": "^9.1.0",
+    "ejs": "^3.1.10",
+    "fastify": "^4.28.1",
+    "fastify-html": "^0.5.0"
+  }
+}

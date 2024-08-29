@@ -1,14 +1,17 @@
 #!/usr/bin/env node
 import { fileURLToPath } from 'node:url'
+import { join } from 'node:path'
 import Fastify from 'fastify'
-import fastifyHtml from 'fastify-html'
-import { createHtmlFunction } from './client/index.js'
+import fastifyView from '@fastify/view'
+import ejs from 'ejs'
 
 export async function main () {
   const server = Fastify()
-  await server.register(fastifyHtml)
-
-  server.addLayout(createHtmlFunction(server))
+  await server.register(fastifyView, {
+    engine: { ejs },
+    root: 'client',
+    layout: 'index.ejs',
+  })
 
   server.get('/', (req, reply) => {
     const wrapperWidth = 960
@@ -37,13 +40,7 @@ export async function main () {
       radius += step * 0.015
     }
 
-    return reply.html`<div id="wrapper">
-      !${tiles.map(({ x, y }) => (
-        server.html`<div
-          class="tile"
-          style="left: ${x.toFixed(2)}px; top: ${y.toFixed(2)}px"></div>`
-      ))}
-    </div>`
+    return reply.view('spiral.ejs', { tiles })
   })
 
   return server
