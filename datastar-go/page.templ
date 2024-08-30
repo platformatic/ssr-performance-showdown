@@ -1,0 +1,66 @@
+package dsssr
+
+import "fmt"
+
+templ InitialPage(tiles []Tile) {
+	@Page() {
+		<div id="wrapper"></div>
+	}
+}
+
+templ Page() {
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<meta charset="utf-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<style>
+	    body {
+	      display: flex;
+	      justify-content: center;
+	      align-items: center;
+	      height: 100vh;
+	      background-color: #f0f0f0;
+	      margin: 0;
+	    }
+	    #wrapper {
+	      width: 960px;
+	      height: 720px;
+	      position: relative;
+	      background-color: white;
+	    }
+	    .tile {
+	      position: absolute;
+	      width: 10px;
+	      height: 10px;
+	      background-color: #333;
+	    }
+	    </style>
+			<script type="module" defer src={ staticPath("datastar.js") }></script>
+		</head>
+		<body data-on-load="$$get('/hydrate')">
+			{ children... }
+		</body>
+	</html>
+}
+
+css tileStyle(t Tile) {
+	left: { fmt.Sprintf(`%fpx`, t.X) };
+	top: { fmt.Sprintf(`%fpx`, t.Y) };
+}
+
+templ App(tiles []Tile) {
+	<div id="wrapper">
+		for _, t := range tiles {
+			{{
+				attrs := templ.Attributes{
+					"style": fmt.Sprintf("left: %0.2fpx; top: %0.2fpx;", t.X, t.Y),
+				}
+			}}
+			<div
+				class="tile"
+				{ attrs... }
+			></div>
+		}
+	</div>
+}
