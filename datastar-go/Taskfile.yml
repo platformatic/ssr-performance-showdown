@@ -1,0 +1,47 @@
+# https://taskfile.dev
+
+version: "3"
+
+vars:
+  NAME: "datastar_ssr"
+  BIN_NAME: "{{.NAME}}_bin"
+
+tasks:
+  tools:
+    cmds:
+      - go get -u github.com/a-h/templ
+      - go install github.com/a-h/templ/cmd/templ@latest
+
+  templ:
+    env:
+      TEMPL_EXPERIMENT: rawgo
+    generates:
+      - "**/*_templ.go"
+    sources:
+      - "**/*.templ"
+    cmds:
+      - templ generate .
+
+  kill:
+    cmds:
+      - killall -q {{.BIN_NAME}}  || echo "Process was not running."
+
+  hot:
+    desc: Server hot reload
+    env:
+      ENV: dev
+    sources:
+      - "**/*.go"
+    deps:
+      - kill
+      - templ
+
+    cmds:
+      - go mod tidy
+      - go build -o ./{{.BIN_NAME}} cmd/{{.NAME}}/main.go
+      - ./{{.BIN_NAME}}
+
+  default:
+    deps:
+      - hot
+    silent: true

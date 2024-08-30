@@ -27,11 +27,12 @@
         const chart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ['fastify-html', 'Vue', 'Svelte', 'Solid', 'Preact', 'React'],
+                labels: ['datastar', 'fastify-html', 'Vue', 'Svelte', 'Solid', 'Preact', 'React'],
                 datasets: [{
                     label: 'Requests per Second (rps)',
-                    data: [1088, 1030, 968, 907, 717, 572],
+                    data: [50751, 1030, 968, 907, 717, 572],
                     backgroundColor: [
+                        'grey', // datastar
                         '#4b87b9', // fastify-html
                         'grey', // vue
                         '#4b87b9', // svelte
