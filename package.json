@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@riotjs/compiler": "^9.2.0",
+    "@riotjs/hydrate": "^9.0.0",
+    "@riotjs/ssr": "^9.0.0",
+    "riot": "^9.3.0"
+  }
+}
