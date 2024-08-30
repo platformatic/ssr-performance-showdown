@@ -1,0 +1,7 @@
+[profile]
+
+[profile.dioxus-client]
+inherits = "release"
+
+[profile.dioxus-server]
+inherits = "release"
