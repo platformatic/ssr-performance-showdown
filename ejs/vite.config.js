@@ -6,7 +6,7 @@ const path = fileURLToPath(import.meta.url)
 const root = resolve(dirname(path), 'client')
 
 const plugins = [
-  viteReact({ jsxRuntime: 'automatic' })
+  viteReact({ jsxRuntime: 'classic' })
 ]
 
 export default {

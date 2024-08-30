@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSR Performance Showdown</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #fff;
+        }
+
+        canvas {
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="ssrPerformanceChart"></canvas>
+
+    <script>
+        const ctx = document.getElementById('ssrPerformanceChart').getContext('2d');
+        const chart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['fastify-html', 'Vue', 'Svelte', 'Solid', 'Preact', 'React'],
+                datasets: [{
+                    label: 'Requests per Second (rps)',
+                    data: [1088, 1030, 968, 907, 717, 572],
+                    backgroundColor: [
+                        '#4b87b9', // fastify-html
+                        'grey', // vue
+                        '#4b87b9', // svelte
+                        'grey', // solid
+                        '#4b87b9', // preact
+                        'grey'  // react
+                    ],
+                    borderWidth: 1,
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            color: 'black',
+                        }
+                    },
+                    x: {
+                        ticks: {
+                            color: 'black',
+                            font: {
+                                size: 24
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'SSR Performance Showdown',
+                        color: 'black',
+                        font: {
+                            size: 30
+                        }
+                    },
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

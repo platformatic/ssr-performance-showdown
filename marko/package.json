@@ -1,0 +1,21 @@
+{
+  "type": "module",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "NODE_ENV=production node server.js",
+    "build": "rm -rf dist && npm run build:server && npm run build:client",
+    "build:client": "NODE_ENV=production vite build",
+    "build:server": "NODE_ENV=production vite build --ssr src/index.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "@fastify/static": "^7.0.4",
+    "@marko/fastify": "^1.1.1",
+    "fastify": "^4.28.1",
+    "marko": "^5.35.13"
+  },
+  "devDependencies": {
+    "@marko/vite": "^4.1.19",
+    "vite": "^5.4.2"
+  }
+}

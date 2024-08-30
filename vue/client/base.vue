@@ -1,30 +1,25 @@
 <template>
   <div id="wrapper">
     <div
-      v-for="(tile, index) in tiles"
-      :key="tile.id"
+      v-for="({ x, y }, index) in tiles"
       class="tile"
-      :style="{ left: tile.x + 'px', top: tile.y + 'px' }"
+      :style="`left: ${x.toFixed(2)}px; top: ${y.toFixed(2)}px`"
     ></div>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
-
 const wrapperWidth = 960
 const wrapperHeight = 720
 const cellSize = 10
 const centerX = wrapperWidth / 2
 const centerY = wrapperHeight / 2
 
-const tiles = ref([])
-
-let idCounter = 0
 let angle = 0
 let radius = 0
-const step = cellSize;
-const newTiles = [];
+
+const tiles = []
+const step = cellSize
 
 let x
 let y
@@ -33,27 +28,10 @@ while (radius < Math.min(wrapperWidth, wrapperHeight) / 2) {
   y = centerY + Math.sin(angle) * radius
 
   if (x >= 0 && x <= wrapperWidth - cellSize && y >= 0 && y <= wrapperHeight - cellSize) {
-    newTiles.push({ x, y, id: idCounter++ })
+    tiles.push({ x, y })
   }
 
   angle += 0.2
   radius += step * 0.015
 }
-
-tiles.value = newTiles
 </script>
-
-<style scoped>
-#wrapper {
-  width: 960px;
-  height: 720px;
-  position: relative;
-  background-color: white;
-}
-.tile {
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  background-color: #333;
-}
-</style>

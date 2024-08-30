@@ -1,13 +1,10 @@
-export const path = '/'
-
-export default function () {
+export function createApp () {
   const wrapperWidth = 960
   const wrapperHeight = 720
   const cellSize = 10
   const centerX = wrapperWidth / 2
   const centerY = wrapperHeight / 2
 
-  let idCounter = 0
   let angle = 0
   let radius = 0
 
@@ -32,9 +29,9 @@ export default function () {
     <div id="wrapper">
       {tiles.map(({ x, y }) => (
         <div
-          class="tile"
+          className="tile"
           style={`left: ${x.toFixed(2)}px; top: ${y.toFixed(2)}px`} />
       ))}
     </div>
-  );
+  )
 }

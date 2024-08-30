@@ -2,7 +2,7 @@
   "type": "module",
   "scripts": {
     "dev": "node server.js --dev",
-    "start": "node server.js",
+    "start": "NODE_ENV=production node server.js",
     "build": "npm run build:client && npm run build:server",
     "build:client": "vite build --outDir dist/client --ssrManifest",
     "build:server": "vite build --outDir dist/server --ssr ./index.js",
@@ -12,7 +12,7 @@
   "dependencies": {
     "@fastify/vite": "^",
     "fastify": "^4.24.3",
-    "vue": "^3.3.8"
+    "vue": "^3.4.38"
   },
   "devDependencies": {
     "@babel/core": "^7.23.3",

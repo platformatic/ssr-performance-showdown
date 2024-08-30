@@ -1,0 +1,7 @@
+<div id="wrapper">
+  <% for (const { x, y } of tiles) { -%>
+    <div
+      class="tile"
+      style="left: <%= x.toFixed(2) %>px; top: <%= y.toFixed(2) %>px"></div>
+  <% } -%>
+</div>

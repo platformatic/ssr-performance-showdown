@@ -1,0 +1,21 @@
+{
+  "type": "module",
+  "scripts": {
+    "dev": "node server.js --dev",
+    "start": "node server.js",
+    "build": "npm run build:client && npm run build:server",
+    "build:client": "vite build --outDir dist/client --ssrManifest",
+    "build:server": "vite build --outDir dist/server --ssr ./index.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "@fastify/vite": "^6.0.7",
+    "fastify": "^4.28.1",
+    "uhtml": "^4.5.11",
+    "uhtml-ssr": "^0.9.1",
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "vite": "^5.4.1"
+  }
+}
