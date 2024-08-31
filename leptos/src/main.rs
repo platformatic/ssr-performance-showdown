@@ -23,7 +23,7 @@ async fn handler() -> Html<String> {
 
     let mut angle: f32 = 0.0;
     let mut radius: f32 = 0.0;
-    let mut tiles = Vec::with_capacity(2398);
+    let mut tiles = Vec::new();
     let step = cell_size;
 
     while radius < (wrapper_width.min(wrapper_height) / 2.0) {
