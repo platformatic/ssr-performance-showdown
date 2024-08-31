@@ -1,0 +1,9 @@
+[package]
+name = "leptos_ssr_benchmark"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+axum = "0.7.5"
+leptos = { version = "0.7.0-beta", features = ["ssr", "nightly"] }
+tokio = { version = "1.40.0", features = ["full"] }
